@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>SAMANA PORTAL</title>
+<style>
+.span
+{
+color: #404040;
+font-size: 0.75rem;
+  
+font-style: italic;
+}
+body {
+  background-color: #eceef1;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.anchor {
+  text-decoration: none;
+  color: #0077c5;}
+
+
+.h-section {
+  margin-top: 60px;
+  text-align: center;
+  clear: both;
+}
+.main-container {
+  background-color: #fff;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px 5px  ;
+  margin: 15px auto 0;
+  padding: 30px;
+  width: 360px;
+}
+
+
+.header-main-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.form-heading {
+  color: darkslategray;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 auto 30px;
+}
+
+
+.label {
+  color: #404040;
+  font-size: 1.2rem;
+}
+
+
+.input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  min-height: 45px;
+  font-size: 1.2rem;
+  padding: 5px 8px;
+  resize: vertical;
+}
+
+
+.input[type="text"] {
+  margin: 8px 0 0;
+}
+
+
+.input[type="number"] {
+  margin: 8px 0 0;
+}
+.input[type="password"] {
+  margin: 8px 0 0;
+}
+
+
+.input:last-of-type {
+  margin: 8px 0 0;
+}
+
+
+.call-warning {
+  font-size: 0.75rem;
+  margin: 8px 0 40px;
+}
+
+
+.button {
+  background-color: #0077c5;
+  border: 1px solid #0077c5;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 1.2rem;
+  height: 48px;
+  width: 100%;  margin: 32px 0px 0;
+}
+
+
+.footer {
+  color: #404040;
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 16px;
+}
+
+
+.form-footer {
+  color: #404040;
+  font-size: 0.75rem;
+  font-style: italic;
+  margin: 50px auto 0;
+  text-align: center;
+  width: 85%;
+}
+
+
+.a-footer {
+  padding-right: 10px;
+  color: #404040;
+}
+
+
+.gray-container {
+  background-color: #eceef1;
+  border: 1px solid #c7c7c7;
+  border-top: none;
+  color: #404040;
+  font-size: 0.7rem;
+  margin: 0 auto;
+  padding: 10px 30px;
+  text-align: center;
+  width: 360px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<header class="h-section">
+    <a class="anchor" href="#">
+      <h1>Welcome To Samana City</h1>
+    </a></header>
+  <div class="main-container">
+    <div class="header-main-container">
+      <h3 class="form-heading">
+        SAMANA
+        <br />
+        PORTAL
+      </h3>
+      <p>
+        Want To Know About Samana?Create Account
+        <a class="anchor" href="#">Learn more</a>
+      </p>
+    </div>
+
+      <form name="fom" action="index.html" onsubmit="return fill()">
+        <label class="label">Email address</label>
+        <input class="input" type="text" id="email" name="email"/>
+<span class="span" id="spane">(Should Contain @ )</span><br>
+        <label class="label">Phone Number</label>
+        <input class="input" type="number" id="tel" name="tel"/>
+<span class="span" id="spant">(Maximum 10 & Contains Country Code)</span><br>
+        <label class="label" >Password</label>
+        <input class="input" type="password" id="password" name="password" />
+<span class="span" id="spanp">(Min. 8 Words & Max. 32 Words)</span><br>
+        <button class="button" name="submit" onmouseover="over()" onmouseout="out()">
+          Create Account
+        </button>
+      </form>
+      <div class="form-footer">
+        <p>
+          By clicking Create Account, you agree to our
+          <a class="anchor" href="#">Terms of Service</a> and have read and acknowledge our
+          <a class="anchor" href="#">Privacy Statement</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="gray-container">
+    <p>
+      Invisible reCAPTCHA by Google <a href="#">Privacy Policy</a>
+      and
+      <a class="anchor" href="#">Terms of Use.</a>
+    </p>
+  </div>
+</body>
+<script>
+function over()
+{
+var a=document.getElementById("email").value;
+var b=document.getElementById("tel").value;
+var c=document.getElementById("password").value;
+if(a=="")
+{
+document.getElementById("spane").innerHTML="*Please Enter Email*";
+}
+if(b=="")
+{
+document.getElementById("spant").innerHTML="*Please Enter Phone Number*";
+}
+if(c=="")
+{
+document.getElementById("spanp").innerHTML="*Please Enter Password*";
+}
+}
+function out()
+{
+document.getElementById("spane").innerHTML="(Should Contain @ )";
+document.getElementById("spant").innerHTML="(Maximum 10 & Contains Country Code)";
+document.getElementById("spanp").innerHTML="(Min. 8 Words & Max. 32 Words)";
+}
+function fill()
+{
+var mail = document.fom.email;
+var tel = document.fom.tel;
+var pass = document.fom.password;
+if(ValidateEmail(mail))
+{
+//alert("mail ok");
+if(number(tel))
+{
+//alert("telephon ok");
+if(passid_validation(pass,8,32))
+{
+
+	return true;
+}  
+}
+}
+return false;
+}
+function passid_validation(pass,mx,my)
+{
+var passid_len = pass.value.length;
+if(passid_len == 0)
+{
+alert("Password should not be empty");
+pass.focus();
+return false;
+}
+if(passid_len >= my || passid_len < mx)
+{
+alert("Password Should be between "+mx+" to "+my);
+pass.focus();
+return false;
+}
+return true;
+}
+function ValidateEmail(mail)
+{
+if((mail.value.length)==0)
+{
+alert("Please Enter Email Address");
+mail.focus();
+return false;
+}
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(mail.value.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+mail.focus();
+return false;
+}
+}
+function number(tel)
+{
+if((tel.value.length)<10&&(tel.value.length)>0)
+{
+alert("Phone Number Length is less");
+return false;
+}
+if((tel.value.length)>10)
+{
+alert("Phone Number Length is More");
+return false;
+} 
+if((tel.value.length)==0)
+{
+alert("Please Enter Phone Number");
+return false;
+}        
+return true;
+}
+</script>
+
+</html>
